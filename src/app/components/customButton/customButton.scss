@@ -1,0 +1,32 @@
+@import "../../globals.scss";
+
+.button-wrapper {
+    $color:'primary';
+    width:fit-content;
+    border:2px solid rgb(var(--card-border-rgb));
+    border-radius: 30px;
+    transition: background 500ms ease-in-out, border 500ms ease-in-out;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:5px;
+    padding-bottom: 5px;
+
+    &:hover {
+        cursor: pointer;
+        background:var(--#{$color}) !important;
+        border-color: var(--primary) !important;
+        animation: boxy 1s ease-in-out infinite;
+
+        
+    }
+}
+
+@keyframes boxy {
+    50%{
+        box-shadow: 0px 0px 10px 10px var(--primary);
+    }
+
+    100%{
+        box-shadow: 0px 0px 0px 0px var(--primary);
+    }
+}

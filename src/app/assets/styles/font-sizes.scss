@@ -1,0 +1,9 @@
+$start: 1;
+$end: 100;
+
+@for $i from $start + 1 through $end {
+    .fs-#{$i} {
+        font-size: #{$i}px !important;
+      }
+  }
+  

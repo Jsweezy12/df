@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+@import './assets/styles/colors.scss';
+@import './assets/styles/margin.scss';
+@import './assets/styles/flex.scss';
+@import './assets/styles/font-sizes.scss';
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -42,6 +48,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+   
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
@@ -79,20 +86,30 @@
   margin: 0;
 }
 
+*{
+  font-family: 'Poppins', sans-serif;
+  }
+
 html,
 body {
   max-width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
+ 
+}
+
+.gradient-background {
   background: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      var(--secondary-dark)
     )
-    rgb(var(--background-start-rgb));
+    var(--secondary-dark);
 }
 
 a {
@@ -105,3 +122,104 @@ a {
     color-scheme: dark;
   }
 }
+
+.w100 {
+  width:100%
+}
+
+.h100 {
+  height:100%
+}
+
+.no-border {
+  border:none !important
+}
+
+.up-down-text {
+  writing-mode:vertical-rl
+}
+
+.animated-gradient {
+animation: bordershadow 5s ease-in-out infinite, spinner 5s ease-in-out infinite;
+
+}
+
+.animate-spinner {
+  animation: spinner 5s ease-in-out infinite;
+}
+
+.reverse-animate-spinner {
+  animation: reverse-spinner 5s ease-in-out infinite;
+}
+
+
+
+@keyframes bordershadow {
+  0% {
+    box-shadow: 0px -10px 15px -6px green;
+  }
+
+  50% {
+    box-shadow: 0px -10px 15px 13px var(--primary),
+      0px 5px 15px 0px var(--secondary),
+      5px 0px 15px 13px var(--white),
+      -5px 0px 15px 0px var(--pale-blue);
+   
+  }
+
+  75% {
+    box-shadow: 0px -10px 15px -6px var(--primary) , 0px 5px 15px 13px var(--secondary) , 5px 0px 15px 10px var(--white) , -5px 0px 15px 5px var(--pale-blue) ;
+  }
+}
+
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  75% {}
+}
+
+@keyframes reverse-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  75% {}
+}
+
+.height-fit {
+  height:fit-content
+}
+
+.no-border {
+  border:none
+}
+
+.hideMe {
+  display: none !important;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+.border-5 {
+  border-radius: 5px;
+}
+
+.gap-5 {
+  gap:5px
+}
+
+
+

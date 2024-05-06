@@ -1,0 +1,72 @@
+:root {
+  --transparent: transparent;
+}
+
+:root{
+    --primary-dark:color-mix(in srgb,var(--primary) 30%, rgb(0, 0, 0));
+    --secondary-dark:color-mix(in srgb,var(--secondary) 40%, rgb(0, 0, 0));
+}
+
+$themes: (
+    dark: (
+        'Franklin-Blue': #000000, 
+        'Light-Blue': #0d0d0d,
+        'pale-blue': #2c2f33,
+        'Pure-White': #ffffff,
+        'VLight-Grey': #99aab5,
+        'Middle-Grey': #2c2f33,
+        'Dark-Grey': #23272a, 
+        'body-color': #000000,
+        'text-color': #ffffff,
+        'bold-text': #7289da,
+        'White-Blue': #7289da
+    ), 
+    default:( 
+        'primary': #ffd500, 
+        'secondary':rgb(51 0 83),
+        'dark-purple':rgb(20 0 33),
+        'white':'white',
+        'pale-blue': #2c2f33,
+        'pale-purple':#594763,
+        'light-purple':#d798ff,
+        'red':'red'
+    )
+);
+
+@mixin theme() {
+    @each $theme, $map in $themes {
+      @if $theme == "default" {
+        :root {
+          @each $key, $value in $map {
+            --#{$key}: #{$value};
+          }
+        }
+        
+      } @else {
+        [data-theme="#{$theme}"] {
+          @each $key, $value in $map {
+            --#{$key}: #{$value};
+          }
+        }
+      }
+    }
+  }
+
+  @include theme();
+  
+
+  @each $theme, $map in $themes { 
+    @if $theme == "default" {
+
+        @each $key, $value in $map {
+            .#{$key} {
+                background-color: var(--#{$key});
+            }
+    
+            .#{$key}-text {
+                color:var(--#{$key})
+            }
+          }
+        
+      }
+  }
